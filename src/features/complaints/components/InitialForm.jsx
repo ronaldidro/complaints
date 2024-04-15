@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import { FORM_ERROR } from 'final-form'
 import PropTypes from 'prop-types'
 
 import ArrowRight from '@assets/arrow_right.svg'
 import { Button, Checkbox, Form } from '@features/core'
 import { COMPLAINT_REGISTER_STEPS } from '../utils/constants'
+import { useReadedContext } from '../context/ReadedContext'
 
 const CustomItem = ({ order, description }) => {
   return (
@@ -17,8 +19,13 @@ const CustomItem = ({ order, description }) => {
 }
 
 export const InitialForm = () => {
+  const [, dispatch] = useReadedContext()
+  const navigate = useNavigate()
+
   const handleSubmit = ({ readed }) => {
     if (!readed) return { [FORM_ERROR]: 'Debes marcar esta opción para poder continuar' }
+    dispatch({ type: 'SET' })
+    navigate('/registrar-denuncia')
   }
 
   return (

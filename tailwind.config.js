@@ -6,7 +6,8 @@ export default {
     extend: {
       boxShadow: {
         'breadcrumb': '0px 4px 4px 0px rgba(0, 0, 0, 0.15)',
-        'complaint-criteria': '0px 0px 4px 0px rgba(0, 0, 0, 0.15)'
+        'complaint-criteria': '0px 0px 4px 0px rgba(0, 0, 0, 0.15)',
+        'complainant-type': '0px 0px 4px 0px rgba(0, 0, 0, 0.25)'
       },
       colors: {
         blue: {
@@ -23,7 +24,9 @@ export default {
         },
         neutral: {
           ...colors.neutral,
-          100: '#F6F9FC'
+          100: '#F6F9FC',
+          400: '#C5CDDA',
+          500: '#8A94A2'
         },
         red: {
           ...colors.red,

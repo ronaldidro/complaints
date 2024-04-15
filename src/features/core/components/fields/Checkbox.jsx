@@ -10,7 +10,10 @@ import { margin } from '../../utils/sizes'
 import Error from './Error'
 
 export const Checkbox = ({ name, label, disabled, validate, marginType, className }) => {
-  const { input, meta } = useField(name, { validate, type: 'checkbox' })
+  const {
+    input,
+    meta: { submitFailed }
+  } = useField(name, { validate, type: 'checkbox' })
 
   return (
     <FormControl className={clsx(margin[marginType], className)}>
@@ -25,7 +28,7 @@ export const Checkbox = ({ name, label, disabled, validate, marginType, classNam
             disabled={disabled}
             onChange={input.onChange}
             className="!py-0"
-            icon={meta.submitFailed ? <img src={UncheckedErrorIcon} /> : <img src={UncheckedIcon} />}
+            icon={submitFailed ? <img src={UncheckedErrorIcon} /> : <img src={UncheckedIcon} />}
             checkedIcon={<img src={CheckedIcon} />}
             disableRipple
             {...input}
